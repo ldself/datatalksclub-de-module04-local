@@ -1,0 +1,45 @@
+# The most important file in dbt
+#   This file configures your dbt project, including where to find your models, 
+#     which profile to use, and any project-level variables or configurations.
+# For dbt core, your profile should match the one in profiles.yml
+
+name: 'taxi_rides_ny'
+version: '1.0.0'
+
+# Require a specific dbt version for reproducibility
+require-dbt-version: [">=1.7.0", "<2.0.0"]
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'taxi_rides_ny'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"] # where your SQL models live; dbt will compile and run these to create tables/views in your database;
+#                       - staging - raw table from database; 1-1 copy of data with minimal cleaning (data types, column renme, etc.)
+#                       - intermediate - anything not raw and not intended to expose; for heavy duty cleaning or complex logic
+#                       - marts - data exposed to end users
+analysis-paths: ["analyses"] # a place for SQL files that aren't models, like ad-hoc queries or data exploration
+test-paths: ["tests"] # place to put assertions in SQL format; if command returns >0 rows then the build fails
+seed-paths: ["seeds"] # CSV files that dbt can load into your database as tables; great for small reference datasets
+macro-paths: ["macros"] # behave like Python functions; encapsulates logic in one place
+snapshot-paths: ["snapshots"] # tracks history of a table; dbt will track changes to your data over time
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Project-level variables
+vars:
+  # Date range for dev environment sampling
+  dev_start_date: '2019-01-01'
+  dev_end_date: '2019-02-01'
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+models:
+  taxi_rides_ny:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

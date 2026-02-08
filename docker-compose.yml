@@ -1,0 +1,17 @@
+services:
+  dbt-duckdb:
+    build: .
+    container_name: dbt-duckdb
+    volumes:
+      # Mount your project so edits in VS Code are reflected live
+      - ./taxi_rides_ny:/usr/app/taxi_rides_ny
+      - ./data:/usr/app/data
+      - ./notebooks:/usr/app/notebooks
+      - ./profiles.yml:/root/.dbt/profiles.yml
+    ports:
+      # Expose a port if you want to run Jupyter or a Python server
+      - "8888:8888"
+    environment:
+      - DUCKDB_DATABASE=/usr/app/data/taxi_rides_ny.duckdb
+    stdin_open: true
+    tty: true

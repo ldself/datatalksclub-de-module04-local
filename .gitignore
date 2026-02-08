@@ -1,0 +1,42 @@
+# DuckDB database files
+*.duckdb
+*.duckdb.wal
+
+# dbt
+taxi_rides_ny/target/
+taxi_rides_ny/dbt_packages/
+taxi_rides_ny/logs/
+taxi_rides_ny/dbt_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Docker
+.docker/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+
+# Data directory (keep the folder, ignore contents)
+data/*
+!data/.gitkeep
