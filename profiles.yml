@@ -4,7 +4,7 @@ taxi_rides_ny:
     # DuckDB Development profile
     dev:
       type: duckdb
-      path: /usr/app/data/taxi_rides_ny_dev.duckdb
+      path: /usr/app/data/taxi_rides_ny.duckdb
       schema: dev
       threads: 1
       extensions:
