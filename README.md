@@ -128,7 +128,7 @@ docker compose up -d --build
 docker compose exec dbt-duckdb dbt seed
 ```
 
-1. Ingest trip data by running the ingestion script from the `notebooks/` folder:
+2. Ingest trip data by running the ingestion script from the `notebooks/` folder:
 
 ```bash
 python notebooks/download_and_ingest.py
@@ -150,8 +150,8 @@ docker compose exec dbt-duckdb dbt build   # Run + test combined
 Alternatively, use the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) VS Code extension:
 
 1. `Shift+Command+P` > **Attach to Running Container**
-1. Open the `taxi_rides_ny` folder
-1. Run dbt commands directly from the integrated terminal
+2. Open the `taxi_rides_ny` folder
+3. Run dbt commands directly from the integrated terminal
 
 ### Build for Production
 
