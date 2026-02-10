@@ -4,7 +4,7 @@ WORKDIR /usr/app
 
 # Install system deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git gcc g++ && \
+    git gcc g++ unzip wget && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python packages

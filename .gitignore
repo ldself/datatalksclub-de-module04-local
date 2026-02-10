@@ -18,6 +18,7 @@ build/
 .venv/
 venv/
 *.egg
+.mypy_cache/
 
 # Jupyter
 .ipynb_checkpoints/
